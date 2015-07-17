@@ -57,11 +57,13 @@ angular.module('smartstock.controllers', [])
 
 .controller('CommandeCtrl', function($scope, $http, SrvCommande) {
     var baseUrl = '';
+	var i = 0;
     //var baseUrl = 'http://webstock/api/';
     /*$http.get(baseUrl + '/api/commande/all').then(function(resp) {
 
     })*/
     SrvCommande.all().success(function(data) {
+		
         $scope.commandes = data;
         console.log(data);
     });
