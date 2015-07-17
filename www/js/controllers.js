@@ -55,18 +55,23 @@ angular.module('starter.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('CommandeCtrl', function($scope) {
-	$scope.groups = [];
+.controller('CommandeCtrl', function($scope, $http) {
+    var baseUrl = '';
+    //var baseUrl = 'http://webstock/api/';
+    $http.get(baseUrl + '/api/commande/all').then(function(resp) {
+
+    })
+    $scope.groups = [];
   for (var i=0; i<5; i++) {
     $scope.groups[i] = {
-      name: i,
+      name: resp.ID_COM,
       items: []
     };
     for (var j=0; j<3; j++) {
       $scope.groups[i].items.push(i + '-' + j);
     }
   }
-  
+
   /*
    * if given group is the selected group, deselect it
    * else, select the given group
