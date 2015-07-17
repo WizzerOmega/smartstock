@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('smartstock.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -55,13 +55,18 @@ angular.module('starter.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('CommandeCtrl', function($scope, $http) {
+.controller('CommandeCtrl', function($scope, $http, SrvCommande) {
     var baseUrl = '';
     //var baseUrl = 'http://webstock/api/';
-    $http.get(baseUrl + '/api/commande/all').then(function(resp) {
+    /*$http.get(baseUrl + '/api/commande/all').then(function(resp) {
 
-    })
+    })*/
+    SrvCommande.all().success(function(data) {
+        $scope.commandes = data;
+        console.log(data);
+    });
     $scope.groups = [];
+    /*
   for (var i=0; i<5; i++) {
     $scope.groups[i] = {
       name: resp.ID_COM,
@@ -69,8 +74,8 @@ angular.module('starter.controllers', [])
     };
     for (var j=0; j<3; j++) {
       $scope.groups[i].items.push(i + '-' + j);
-    }
   }
+  }*/
 
   /*
    * if given group is the selected group, deselect it
