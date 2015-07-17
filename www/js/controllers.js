@@ -56,26 +56,9 @@ angular.module('smartstock.controllers', [])
 })
 
 .controller('CommandeCtrl', function($scope, $http, SrvCommande) {
-    var baseUrl = '';
-    //var baseUrl = 'http://webstock/api/';
-    /*$http.get(baseUrl + '/api/commande/all').then(function(resp) {
-
-    })*/
     SrvCommande.all().success(function(data) {
         $scope.commandes = data;
-        console.log(data);
     });
-    $scope.groups = [];
-    /*
-  for (var i=0; i<5; i++) {
-    $scope.groups[i] = {
-      name: resp.ID_COM,
-      items: []
-    };
-    for (var j=0; j<3; j++) {
-      $scope.groups[i].items.push(i + '-' + j);
-  }
-  }*/
 
   /*
    * if given group is the selected group, deselect it
