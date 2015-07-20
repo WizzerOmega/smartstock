@@ -1,0 +1,21 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, 
+    maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>Ionic Graph</title>
+     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic/css/angular-chart.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/Chart.min.js"></script>
+    <script src="lib/ionic/js/angular-chart.min.js"></script>
+    <script src="cordova.js"></script>
+   </head>
+
+<body ng-app="smartstock" ng-controller="StatCtrl">  
+    <canvas id="bar" class="chart chart-bar" data="graph.data" labels="graph.labels" series='graph.series' height="100"></canvas>
+</body>  
+</html> 

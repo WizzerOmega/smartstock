@@ -55,6 +55,8 @@ angular.module('smartstock.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
+//Controller des commandes
+
 .controller('CommandeCtrl', function($scope, $http, SrvCommande) {
     var baseUrl = '';
 	var i = 0;
@@ -62,22 +64,11 @@ angular.module('smartstock.controllers', [])
     /*$http.get(baseUrl + '/api/commande/all').then(function(resp) {
 
     })*/
+
     SrvCommande.all().success(function(data) {
 		
         $scope.commandes = data;
-        console.log(data);
     });
-    $scope.groups = [];
-    /*
-  for (var i=0; i<5; i++) {
-    $scope.groups[i] = {
-      name: resp.ID_COM,
-      items: []
-    };
-    for (var j=0; j<3; j++) {
-      $scope.groups[i].items.push(i + '-' + j);
-  }
-  }*/
 
   /*
    * if given group is the selected group, deselect it
@@ -93,4 +84,154 @@ angular.module('smartstock.controllers', [])
   $scope.isGroupShown = function(group) {
     return $scope.shownGroup === group;
   };
+})
+
+//Controler des types produits
+
+.controller('TProduitCtrl', function($scope, $http, SrvTypeProduit) {
+    var baseUrl = '';
+	var i = 0;
+    //var baseUrl = 'http://webstock/api/';
+    /*$http.get(baseUrl + '/api/tproduit/all').then(function(resp) {
+
+    })*/
+
+    SrvTypeProduit.all().success(function(data) {
+		
+        $scope.tproduits = data;
+    });
+
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
+
+//Controler des produits
+
+.controller('ProduitCtrl', function($scope, $http, SrvProduit) {
+    var baseUrl = '';
+	var i = 0;
+    //var baseUrl = 'http://webstock/api/';
+    /*$http.get(baseUrl + '/api/produit/all').then(function(resp) {
+
+    })*/
+
+    SrvProduit.all().success(function(data) {
+		
+        $scope.produits = data;
+    });
+
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
+
+/*Bouton de refresh */
+.controller('MyController', function($scope, $http) {
+  $scope.items = [1,2,3,4,5];
+  $scope.doRefresh = function() {
+    $http.get('/new-items')
+     .success(function(newItems) {
+       $scope.items = newItems;
+     })
+     .finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
+})
+
+/*Loading durant le refresh*/
+.controller('LoadingCtrl', function($scope, $ionicLoading) {
+  $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
 });
+
+/*Geolocalisation pour les clients*/
+/*
+.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+        
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"),
+            mapOptions);
+        
+        //Marker + infowindow + angularjs compiled ng-click
+        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+        var compiled = $compile(contentString)($scope);
+
+        var infowindow = new google.maps.InfoWindow({
+          content: compiled[0]
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+
+        $scope.map = map;
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+      $scope.centerOnMe = function() {
+        if(!$scope.map) {
+          return;
+        }
+
+        $scope.loading = $ionicLoading.show({
+          content: 'Getting current location...',
+          showBackdrop: false
+        });
+
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+          $scope.loading.hide();
+        }, function(error) {
+          alert('Unable to get location: ' + error.message);
+        });
+      };
+      
+      $scope.clickTest = function() {
+        alert('Example of infowindow with ng-click')
+      };
+      
+    });
+*/

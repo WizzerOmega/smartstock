@@ -1,11 +1,11 @@
 <ion-view view-title="Catégories">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists">
+      <ion-item ng-repeat="tproduit in tproduits">
 	    <div class="list">
-			<a class="item item-thumbnail-left" href="#/app/playlists/{{playlist.id}}">
+			<a class="item item-thumbnail-left" href="#/app/playlists/{{tproduit.ID_TYPE}}">
 			  <img src="cover.jpg">
-			  <h2>{{playlist.title}}</h2>
+			  <h2>{{tproduit.LIB_TYPE}}</h2>
 			</a>
 		</div>
       </ion-item>

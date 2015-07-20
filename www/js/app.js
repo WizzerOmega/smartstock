@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.services'])
+angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.controller_chart', 'smartstock.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -36,7 +36,8 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.ser
     url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/search.html',
+		//controller : 'MapCtrl'
       }
     }
   })
@@ -55,17 +56,25 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.ser
       views: {
         'menuContent': {
           templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'TProduitCtrl'
         }
       }
     })
-
+  .state('app.stats', {
+      url: '/stats',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/stats.html',
+		  controller : 'StatCtrl'
+        }
+      }
+    })
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        controller: 'ProduitCtrl'
       }
     }
   });
