@@ -10,7 +10,7 @@
       <ion-item ng-repeat="produit in produits">
 	    <div class="list">
 			<a class="item item-thumbnail-left">
-			  <img src="cover.jpg">
+			  <img src="{{produit.IMG_PROD}}">
 			  <h2>Code Produit : {{produit.NUM_PROD}}</h2>
 			  <p>{{produit.LIB_PROD}}</p>
 			  <p>{{produit.PRIX_PROD}} € </p>

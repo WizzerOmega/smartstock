@@ -3,9 +3,10 @@
     <ion-list>
       <ion-item ng-repeat="tproduit in tproduits">
 	    <div class="list">
-			<a class="item item-thumbnail-left" href="#/app/playlists/{{tproduit.ID_TYPE}}">
-			  <img src="cover.jpg">
+			<a id="playlistId" class="item item-thumbnail-left" href="#/app/playlists/{{tproduit.ID_TYPE}}">
+			  <img src="{{tproduit.IMG_TYPE}}">
 			  <h2>{{tproduit.LIB_TYPE}}</h2>
+			  <h3>{{tproduit.DES_TYPE}}</h3>
 			</a>
 		</div>
       </ion-item>

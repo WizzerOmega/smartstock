@@ -119,17 +119,17 @@ angular.module('smartstock.controllers', [])
 
 //Controler des produits
 
-.controller('ProduitCtrl', function($scope, $http, SrvProduit) {
+.controller('ProduitCtrl', function($scope, $http, SrvProduit, $stateParams) {
     var baseUrl = '';
 	var i = 0;
+	$stateParams.playlistId;
     //var baseUrl = 'http://webstock/api/';
     /*$http.get(baseUrl + '/api/produit/all').then(function(resp) {
 
     })*/
-
-    SrvProduit.all().success(function(data) {
-		
+    SrvProduit.get($stateParams.playlistId).success(function(data) {	
         $scope.produits = data;
+		
     });
 
   /*

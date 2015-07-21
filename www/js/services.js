@@ -22,7 +22,7 @@ angular.module('smartstock.services', [])
                 return $http.get(baseUrl + '/api/tproduit/all');
             },
             get: function(id) {
-
+				return $http.get(baseUrl + '/api/tproduit/all');
             }
         };
     })
@@ -35,8 +35,8 @@ angular.module('smartstock.services', [])
             all: function() {
                 return $http.get(baseUrl + '/api/produit/all');
             },
-            get: function(id) {
-
+            get: function(playlistId) {
+				return $http.get(baseUrl + '/api/produit/all/categ/' + playlistId);
             }
         };
     });
