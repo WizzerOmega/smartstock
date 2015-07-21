@@ -21,3 +21,46 @@
 .scroll {
   height: 100%;
 }
+
+.row
+{
+	padding-top : 1px;
+	padding-bottom : 1px;
+}
+
+.item-divider
+{
+	padding-top : 1px;
+	padding-bottom : 1px;
+	border-color: #28A54C;
+	background-color: #33CD5F;
+}
+
+.item-divider.item
+{
+	color : #FFF;
+	padding-top : 1px;
+	padding-bottom : 1px;
+}
+
+.item-text-wrap
+{
+	padding-top : 1px;
+	padding-bottom : 1px;
+}
+
+.titreComDet
+{
+	background-color: #33CD5F;
+	padding-top : 1px;
+	padding-bottom : 3px;
+	color : #FFF;
+}
+
+.btnDetCom.button.button-positive.icon.ion-clipboard
+{
+	border-color: #28A54C;
+	background-color: #33CD5F;
+	color : #FFF;
+}
+

@@ -1,0 +1,35 @@
+<ion-view view-title="{{prod.LIB_PROD}}">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-item="prod in produits">
+  <div class="item item-body">
+      <p>
+      R&eacute;f&eacute;rence produit : {{prod.NUM_PROD}}
+    </p>
+    <img class="full-image" src="{{prod.IMG_PROD}}">
+	<p>
+	{{prod.DES_PROD}}
+	</p>
+	<b>
+	Prix : {{prod.PRIX_PROD}} &euro;
+	</b>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-ios-cart"></i>
+      Commander
+    </a>
+	<a class="tab-item" href="#">
+	  <i></i>
+	  <b>Stock : {{prod.QTE_PROD}}</b>
+    </a>
+  </div>
+</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Smartstock</div>
+</div>

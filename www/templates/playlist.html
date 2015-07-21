@@ -1,22 +1,27 @@
 <ion-view view-title="Produits">
   <ion-content>
-    <div class="list list-inset">
-	  <label class="item item-input">
-		<i class="icon ion-search placeholder-icon"></i>
-		<input type="text" placeholder="Rechercher un produit">
-	  </label>
-	</div>
+       <form ng-submit="search()">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper" id="search-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Rechercher" ng-model="searchKey">
+                </label>
+            </div>
+        </form>
     <ion-list>
       <ion-item ng-repeat="produit in produits">
 	    <div class="list">
-			<a class="item item-thumbnail-left">
+			<a id="prodId" class="item item-thumbnail-left" href="#/app/single/{{produit.ID_PROD}}">
 			  <img src="{{produit.IMG_PROD}}">
 			  <h2>Code Produit : {{produit.NUM_PROD}}</h2>
 			  <p>{{produit.LIB_PROD}}</p>
-			  <p>{{produit.PRIX_PROD}} € </p>
+			  <p>{{produit.PRIX_PROD}} &euro; </p>
 			</a>
 		</div>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Smartstock</div>
+</div>

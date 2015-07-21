@@ -129,13 +129,100 @@ angular.module('smartstock.controllers', [])
     })*/
     SrvProduit.get($stateParams.playlistId).success(function(data) {	
         $scope.produits = data;
-		
-    });
+});
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
 
-  /*
-   * if given group is the selected group, deselect it
-   * else, select the given group
-   */
+//Controller du detail du produit
+	
+.controller('ProduitDetailCtrl', function($scope, $http, SrvDetailPro, SrvProduit, $stateParams) {
+    var baseUrl = '';
+	var i = 0;
+	$stateParams.prodId;
+    //var baseUrl = 'http://webstock/api/';
+    /*$http.get(baseUrl + '/api/produit/all').then(function(resp) {
+
+    })*/
+    SrvDetailPro.get($stateParams.prodId).success(function(data) {	
+        $scope.prod = data;
+	});
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
+
+.controller('CommandeDetailCtrl', function($scope, $http, SrvDetailCommande, $stateParams) {
+    var baseUrl = '';
+	var i = 0;
+	$stateParams.comId;
+    //var baseUrl = 'http://webstock/api/';
+    /*$http.get(baseUrl + '/api/produit/all').then(function(resp) {
+
+    })*/
+    SrvDetailCommande.get($stateParams.comId).success(function(data) {	
+        $scope.coms = data;
+	});
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
+
+.controller('ClientCtrl', function($scope, $http, SrvClient) {
+    var baseUrl = '';
+	var i = 0;
+    //var baseUrl = 'http://webstock/api/';
+    /*$http.get(baseUrl + '/api/client/all').then(function(resp) {
+
+    })*/
+    SrvClient.all().success(function(data) {	
+        $scope.clients = data;
+	});
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
+
+.controller('ClientDetailCtrl', function($scope, $http, SrvCliDetail, $stateParams) {
+    var baseUrl = '';
+	var i = 0;
+	$stateParams.clieId;
+    //var baseUrl = 'http://webstock/api/';
+    /*$http.get(baseUrl + '/api/client/all').then(function(resp) {
+
+    })*/
+    SrvCliDetail.get($stateParams.clieId).success(function(data) {	
+        $scope.clis = data;
+	});
   $scope.toggleGroup = function(group) {
     if ($scope.isGroupShown(group)) {
       $scope.shownGroup = null;

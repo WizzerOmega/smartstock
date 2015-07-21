@@ -1,0 +1,55 @@
+<ion-view title="{{coms.NUM_COM}}">
+    <ion-content ng-item="commande in coms">
+	<h2 class="titreComDet" align="center">R&eacute;capitulatif commande</h2>
+	</br>
+	<p>Client : </p>
+	<p>Date commande : {{coms.DATE_COM}}</p>
+	<p>Date livraison pr&eacute;vue : {{coms.DATE_LIVRAISON_COM}}</p>
+	<p>Statut : </p>
+	</br>
+      <ion-list>
+            <div class="item col-header item-divider">
+                <div class="row">
+                        <div class="col-50">Num&eacute;ro Produit</div>
+						<div class="col-50">Libell&eacute; Produit</div>
+                    </div>
+            </div>
+			<div class="item col-header item-text-wrap">
+                <div class="row">
+                        <div class="col-33">Quantit&eacute;</div>
+						<div class="col-33">Prix</div>
+						<div class="col-33">Total ligne</div>
+                    </div>
+            </div>
+            <div class="item col-header item-divider">
+				<div class="row">
+				  <div class="col-50">31000</div>
+				  <div class="col-50">Si&egrave;ge Renault</div>
+				</div>
+			</div>
+			<div class="item col-header item-text-wrap">
+				<div class="row">
+				  <div class="col-33">2</div>
+				  <div class="col-33">120 &euro;</div>
+				  <div class="col-33">240 &euro;</div>
+				</div>
+            </div>
+            <div class="item col-header item-divider">
+				<div class="row">
+				  <div class="col-50">31000</div>
+				  <div class="col-50">Si&egrave;ge Renault</div>
+				</div>
+			</div>
+			<div class="item col-header item-text-wrap">
+				<div class="row">
+				  <div class="col-33">2</div>
+				  <div class="col-33">120 &euro;</div>
+				  <div class="col-33">240 &euro;</div>
+				</div>
+            </div> 			
+      </ion-list>
+    </ion-content>
+ </ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Smartstock</div>
+</div>

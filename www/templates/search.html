@@ -1,5 +1,26 @@
-<ion-view view-title="Search">
-  <ion-content>
-    <h1>Search</h1>
-  </ion-content>
+<ion-view title="Clients">
+
+    <div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input id="searchKey" type="search" placeholder="Search" ng-model="searchKey" autocorrect="off" >
+            <button class="button button-clear" ng-click="clearSearch()">X</button>
+        </label>
+        <button class="button button-clear" ng-click="search()">Search</button>
+    </div>
+
+    <ion-content class="has-header has-subheader">
+        <ion-list>
+            <ion-item ng-repeat="client in clients" type="item-text-wrap" class="item-avatar"
+                      href="#app/search/{{client.ID_CLI}}">
+                <img src="img/avatar/default.png"/>
+                {{client.RS_CLI}} 
+				<p>{{client.TEL_CLI}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
 </ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Smartstock</div>
+</div>

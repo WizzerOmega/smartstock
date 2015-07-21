@@ -1,0 +1,25 @@
+<ion-view title="{{clis.RS_CLI}}">
+    <ion-content has-header="true" padding="true" ng-item="cli in clis">
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/avatar/default.png"/>
+                <h2>{{clis.RS_CLI}}</h2>
+                <p>{{clis.NUM_CLI}}</p>
+            </div>
+            <a class="item item-icon-left"><i class="icon ion-clipboard"></i>Adresse
+			<p>{{clis.ADR1_CLI}}</p>
+			<p>{{clis.CP_CLI}} {{clis.VILLE_CLI}}</p>
+			<a class="item item-icon-left"><i class="icon ion-ios-bookmarks"></i>Siret
+			<p>{{clis.SIRET_CLI}}</p>
+            <a class="item item-icon-left" href="tel:{{clis.TEL_CLI}}"><i class="icon ion-ios-telephone"></i>Telephone<p>{{clis.TEL_CLI}}</p></a>
+            <a class="item item-icon-left" href="mailto:{{clis.MAIL_CLI}}"><i class="icon ion-email"></i>Email<p>{{clis.MAIL_CLI}}</p></a>
+			<a class="item item-icon-left"><i class="icon ion-earth"></i>Localisation
+			<div></div>
+			</a>
+        </div>
+    </ion-content>	
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAh6uJJLwVeJbLK15N8tYcePscZoV2IuMA&sensor=true"></script>
+</ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Smartstock</div>
+</div>

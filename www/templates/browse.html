@@ -25,12 +25,11 @@
           </ion-item>
           <ion-item class="item-accordion"
                     ng-show="isGroupShown(commande)">
-					<div class="item item-button-right commande in commandes">
+					<div class="item item-button-right">
 					<p>Date commande : {{commande.DATE_COM}}</p>
 				<p>Date livraison : {{commande.DATE_LIVRAISON_COM}}</p>
-				<button class="button button-positive">
-				  <i class="icon ion-clipboard"></i>
-				</button>
+			<a class="btnDetCom button button-positive icon ion-clipboard" href="#/app/browse/{{commande.ID_COM}}">
+			</a>
 			  </div>
           </ion-item>
         </div>

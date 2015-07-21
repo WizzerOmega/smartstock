@@ -37,7 +37,17 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html',
-		//controller : 'MapCtrl'
+		controller : 'ClientCtrl'
+      }
+    }
+  })
+  
+    .state('app.clidetail', {
+    url: '/search/:clieId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/clidetail.html',
+		controller : 'ClientDetailCtrl'
       }
     }
   })
@@ -51,6 +61,17 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
         }
       }
     })
+	
+	  .state('app.comdetail', {
+      url: '/browse/:comId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/comdetail.html',
+		  controller : 'CommandeDetailCtrl'
+        }
+      }
+    })
+	
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -60,6 +81,7 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
         }
       }
     })
+	
   .state('app.stats', {
       url: '/stats',
       views: {
@@ -69,6 +91,7 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
         }
       }
     })
+	
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
@@ -77,7 +100,18 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
         controller: 'ProduitCtrl'
       }
     }
-  });
+  })
+  
+  	  .state('app.prod', {
+      url: '/single/:prodId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/prod.html',
+		  controller : 'ProduitDetailCtrl'
+        }
+      }
+    });
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 });
