@@ -1,11 +1,20 @@
-<ion-view title="{{coms.NUM_COM}}">
-    <ion-content ng-item="commande in coms">
-	<h2 class="titreComDet" align="center">R&eacute;capitulatif commande</h2>
+<ion-view title="R&eacute;capitulatif commande {{coms.NUM_COM}}">
+    <ion-content ng-repeat="det in dets" >
 	</br>
-	<p>Client : </p>
-	<p>Date commande : {{coms.DATE_COM}}</p>
-	<p>Date livraison pr&eacute;vue : {{coms.DATE_LIVRAISON_COM}}</p>
-	<p>Statut : </p>
+	</br>
+	<a class="item item-avatar" href="#app/search/{{det.ID_CLI}}">
+      <img src="img/avatar/default.png">
+      <h2>{{det.RS_CLI}}</h2>
+      <p>{{det.ADR1_CLI}}</p>
+	  <p>{{det.ADR2_CLI}}</p>
+	  <p>{{det.ADR3_CLI}}</p>
+	  <p>{{det.CP_CLI}} {{det.VILLE_CLI}}</p>
+    </a>
+	<a class="item" href="#">
+      <h2>Commande : {{det.NUM_COM}}</h2>
+      <p>Date commande : {{det.DATE_COM}}</p>
+	  <p>Date livraison pr&eacute;vue : {{det.DATE_LIVRAISON_COM}}</p>
+    </a>
 	</br>
       <ion-list>
             <div class="item col-header item-divider">
@@ -17,39 +26,31 @@
 			<div class="item col-header item-text-wrap">
                 <div class="row">
                         <div class="col-33">Quantit&eacute;</div>
-						<div class="col-33">Prix</div>
+						<div class="col-33">Prix Unitaire</div>
 						<div class="col-33">Total ligne</div>
                     </div>
             </div>
-            <div class="item col-header item-divider">
-				<div class="row">
-				  <div class="col-50">31000</div>
-				  <div class="col-50">Si&egrave;ge Renault</div>
+			<div ng-repeat="det in dets">
+				<div class="item col-header item-divider">
+					<div class="row">
+					  <div class="col-50">{{det.NUM_PROD}}</div>
+					  <div class="col-50">{{det.LIB_PROD}}</div>
+					</div>
+				</div>
+				<div class="item col-header item-text-wrap">
+					<div class="row">
+					  <div class="col-33">{{det.QTE_LIGNE}}</div>
+					  <div class="col-33">{{det.PRIX_PROD}} &euro;</div>
+					  <div class="col-33">{{det.QTE_LIGNE * det.PRIX_PROD}} &euro;</div>
+					</div>
 				</div>
 			</div>
-			<div class="item col-header item-text-wrap">
-				<div class="row">
-				  <div class="col-33">2</div>
-				  <div class="col-33">120 &euro;</div>
-				  <div class="col-33">240 &euro;</div>
-				</div>
+			</br>
+			<div class="item col-header item-divider">
+                <div class="row">
+                        <div class="col-70">Montant total commande : {{ getTotal() }} &euro;</div>
+                    </div>
             </div>
-            <div class="item col-header item-divider">
-				<div class="row">
-				  <div class="col-50">31000</div>
-				  <div class="col-50">Si&egrave;ge Renault</div>
-				</div>
-			</div>
-			<div class="item col-header item-text-wrap">
-				<div class="row">
-				  <div class="col-33">2</div>
-				  <div class="col-33">120 &euro;</div>
-				  <div class="col-33">240 &euro;</div>
-				</div>
-            </div> 			
       </ion-list>
     </ion-content>
  </ion-view>
-<div class="bar bar-footer bar-balanced">
-  <div class="title">Smartstock</div>
-</div>

@@ -16,7 +16,7 @@
 	  </label>
 	</div>
       <ion-list>
-        <div ng-repeat="commande in commandes">
+        <div ng-repeat="commande in commandes | limitTo:-10">
           <ion-item class="item-stable"
                     ng-click="toggleGroup(commande)"
                     ng-class="{active: isGroupShown(commande)}">
@@ -28,7 +28,7 @@
 					<div class="item item-button-right">
 					<p>Date commande : {{commande.DATE_COM}}</p>
 				<p>Date livraison : {{commande.DATE_LIVRAISON_COM}}</p>
-			<a class="btnDetCom button button-positive icon ion-clipboard" href="#/app/browse/{{commande.ID_COM}}">
+			<a class="btnDetCom button button-positive icon ion-clipboard" href="#/app/browse/{{commande.NUM_COM}}">
 			</a>
 			  </div>
           </ion-item>
@@ -38,6 +38,3 @@
     </ion-content>
     </ion-view>
   </body>
-  <div class="bar bar-footer bar-balanced">
-  <div class="title">Smartstock</div>
-</div>

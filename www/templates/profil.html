@@ -1,0 +1,43 @@
+<ion-view cache-view="false" view-title="Profil">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('img/login.jpg');" ng-controller="ProfilCtrl">
+            <div class="content">
+                <div class="avatar" style="background-image: url('img/avatar/default.png');"></div>
+                <h3><a class="light">Nom Pr&eacute;nom</a></h3>
+                <h4>Commercial</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="app.search" class="tab-item">
+                <i class="icon ion-person-stalker"></i> Clients
+            </a>
+            <a ui-sref="app.playlists" class="tab-item">
+                <i class="icon ion-bag"></i> Catalogue
+            </a>
+            <a ui-sref="app.browse" class="tab-item">
+                <i class="icon ion-document-text"></i> Commandes
+            </a>
+			<a ui-sref="app.stats" class="tab-item">
+                <i class="icon ion-stats-bars"></i> Statistiques
+            </a>
+        </div>
+        <h4 class="positive content padding double-padding-x">Mes rendez-vous journalier</h4>
+			<label class="item item-input">
+			  <span class="input-label">Date</span>
+			  <input type="date">
+			</label>
+		<div ng-controller="RdvCtrl" >
+		<div class="card in" style="transition-delay: 0.22s;" ng-repeat="rdv in rdvs | limitTo:-2">
+			<div class="item item-avatar item-text-wrap stable-bg waves-effect waves-block waves-dark">
+			<span class="avatar" style="background-image:url('img/icon/clock.png');"></span>
+			<strong class="positive">{{rdv.SUJ_RDV}}</strong>
+				<div class="card-footer text-right">
+					<div class="pull-left" style="color : black;">
+					<i class="icon ion-clock"></i> Du {{rdv.DATE_HEURE_DEB_REV}} </br> au {{rdv.DATE_HEURE_FIN_RDV}}
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+    </ion-content>
+</ion-view>

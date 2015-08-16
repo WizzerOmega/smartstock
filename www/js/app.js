@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.controller_commande', 'smartstock.controller_produit', 'smartstock.controller_client', 'smartstock.controller_map', 'smartstock.services'])
+angular.module('smartstock', ['ionic', 'ionic-material', 'ionMdInput', 'smartstock.controller_chart', 'smartstock.controllers', 'smartstock.controller_commande',  'smartstock.controller_rdv', 'smartstock.authentification', 'smartstock.controller_produit', 'smartstock.controller_client', 'smartstock.controller_map', 'smartstock.services', 'ngCordova', 'smartstock.controller_geolocation', "chart.js"])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -51,6 +51,36 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
       }
     }
   })
+  
+   .state('app.geolocalisation', {
+    url: '/geolocalisation',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/geolocalisation.html',
+		controller : 'MapCtrl'
+      }
+    }
+  })
+  
+  .state('app.login', {
+        url: '/login',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/login.html',
+                controller: 'LoginCtrl'
+            }
+        }
+    })
+	
+	    .state('app.profil', {
+		cache: false,
+        url: '/profil',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/profil.html'
+            }
+        }
+    })
 
   .state('app.browse', {
       url: '/browse',
@@ -83,11 +113,12 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
     })
 	
   .state('app.stats', {
+	  cache: false,
       url: '/stats',
       views: {
         'menuContent': {
           templateUrl: 'templates/stats.html',
-		  controller : 'StatCtrl'
+		  controller: 'GraphCtrl'
         }
       }
     })
@@ -113,5 +144,5 @@ angular.module('smartstock', ['ionic', 'smartstock.controllers', 'smartstock.con
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/login');
 });

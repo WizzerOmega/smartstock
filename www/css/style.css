@@ -51,7 +51,7 @@
 
 .titreComDet
 {
-	background-color: #33CD5F;
+	background-color: #444;
 	padding-top : 1px;
 	padding-bottom : 3px;
 	color : #FFF;
@@ -59,8 +59,53 @@
 
 .btnDetCom.button.button-positive.icon.ion-clipboard
 {
-	border-color: #28A54C;
-	background-color: #33CD5F;
+	border-color: #444;
+	background-color: #444;
 	color : #FFF;
 }
 
+.item.col-header.item-divider
+{
+	border-color: #444;
+	background-color: #444;
+	color : #FFF;
+	height : 10px;
+	line-height: 24px;
+	min-height: 24px;
+}
+
+.item.col-header.item-text-wrap
+{
+	line-height: 24px;
+	min-height: 24px;
+}
+
+.bar-assertive-900.bar.bar-header.disable-user-behavior
+{
+	background-color: #444;
+}
+
+.item.item-input.item-md-label
+{
+	width : 94%;
+}
+
+.input-label
+{
+	color : #FAEBD7;
+}
+
+.button.button-full.button-assertive.ink
+{
+	background-color : #444;
+}
+
+.button-bar
+{
+	background-color : #FAEBD7;
+}
+
+.ion-social-android-outline.icon.hero-icon.royal-bg
+{
+	background-color : #228B22 ;
+}

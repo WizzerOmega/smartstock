@@ -40,7 +40,8 @@ angular.module('smartstock.controller_commande', [])
 
     })*/
     SrvDetailCommande.get($stateParams.comId).success(function(data) {	
-        $scope.coms = data;
+        $scope.dets = data;
+
 	});
   $scope.toggleGroup = function(group) {
     if ($scope.isGroupShown(group)) {
@@ -52,4 +53,7 @@ angular.module('smartstock.controller_commande', [])
   $scope.isGroupShown = function(group) {
     return $scope.shownGroup === group;
   };
+  
+
 });
+

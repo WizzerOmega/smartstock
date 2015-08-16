@@ -1,0 +1,11 @@
+<ion-view cache-view="false" view-title="Geolocalisation">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" >
+		<body ng-controller="MapCtrl">
+		  <div id="map" data-tap-disabled="true"></div>
+		    <ion-footer-bar class="bar-dark">
+				<a ng-click="centerOnMe()" class="icon ion-navigate" style="width 50%"> Me localiser</a>
+				<a class="icon ion-navigate" style="width 50%; margin-left :25%"> Itinéraire</a> 
+			</ion-footer-bar>
+		</body>
+    </ion-content>
+</ion-view>

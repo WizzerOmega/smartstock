@@ -1,18 +1,18 @@
-<ion-view view-title="Catégories">
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="tproduit in tproduits">
-	    <div class="list">
-			<a id="playlistId" class="item item-thumbnail-left" href="#/app/playlists/{{tproduit.ID_TYPE}}">
+<ion-view view-title="Catalogue" class="title fab-left">
+  <ion-content style="background: #444">
+  <div class="list condensed-space no-padding done done done done">
+  <div class="card dark-bg in">
+			<a id="playlistId" class="item clear-bg item-bg-image waves-effect waves-button waves-light has-mask-reverse" href="#/app/playlists/{{tproduit.ID_TYPE}}"  ng-repeat="tproduit in tproduits">
 			  <img src="{{tproduit.IMG_TYPE}}">
 			  <h2>{{tproduit.LIB_TYPE}}</h2>
 			  <h3>{{tproduit.DES_TYPE}}</h3>
 			</a>
-		</div>
-      </ion-item>
-    </ion-list>
+	</div>
+	</div>
   </ion-content>
 </ion-view>
-<div class="bar bar-footer bar-balanced">
-  <div class="title">Smartstock</div>
-</div>
+
+
+
+
+

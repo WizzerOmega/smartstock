@@ -15,14 +15,12 @@ angular.module('smartstock.services', [])
 	
 	    .factory('SrvDetailCommande', function($http) {
         var baseUrl = '';
+		var det = [];
         //var baseUrl = 'http://webstock/api/';
         //var cmdAll = $http.get(baseUrl + '/api/commande/all');
         return {
-            all: function() {
-                return $http.get(baseUrl + '/api/commande/');
-            },
             get: function(comId) {
-				return $http.get(baseUrl + '/api/commande/' + comId);
+				return $http.get(baseUrl + '/api/commande/detail/' + comId);
             }
         };
     })
@@ -74,6 +72,23 @@ angular.module('smartstock.services', [])
         };
     })	
 	
+		//Récupération de tous les Rdv
+	
+	    .factory('SrvRdv', function($http) {
+        var baseUrl = '';
+		var rdv = [];
+        //var baseUrl = 'http://webstock/api/';
+        //var cmdAll = $http.get(baseUrl + '/api/rdv/all');
+        return {
+            all: function() {
+                return $http.get(baseUrl + '/api/rdv/all');
+            },
+            get: function(rdvId) {
+				return $http.get(baseUrl + '/api/rdv/' + rdvId);
+            }
+        };
+    })
+	
 	
 	//Récupération de tous les produits
 	
@@ -92,6 +107,30 @@ angular.module('smartstock.services', [])
         };
     })
 	
+		.factory('SrvStatProduit', function($http) {
+        var baseUrl = '';
+		var statPro = [];
+        //var baseUrl = 'http://webstock/api/';
+        //var cmdAll = $http.get(baseUrl + '/api/stat/detail');
+        return {
+            all: function() {
+                return $http.get(baseUrl + '/api/stat/detail');
+            }
+        };
+    })
+	
+	.factory('SrvStatMensuel', function($http) {
+        var baseUrl = '';
+		var StatMensuel = [];
+        //var baseUrl = 'http://webstock/api/';
+        //var cmdAll = $http.get(baseUrl + '/api/produit/all');
+        return {
+            all: function() {
+                return $http.get(baseUrl + '/api/stat/mensuel');
+            }
+        };
+    })
+		
 		.factory('SrvDetailPro', function($http) {
         var baseUrl = '';
         //var baseUrl = 'http://webstock/api/';

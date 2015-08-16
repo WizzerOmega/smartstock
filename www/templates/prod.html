@@ -1,29 +1,36 @@
 <ion-view view-title="{{prod.LIB_PROD}}">
   <ion-content>
-<div class="list" ng-item="prod in produits">
-  <div class="item item-body">
-      <p>
-      R&eacute;f&eacute;rence produit : {{prod.NUM_PROD}}
-    </p>
-    <img class="full-image" src="{{prod.IMG_PROD}}">
-	<p>
-	{{prod.DES_PROD}}
-	</p>
-	<b>
-	Prix : {{prod.PRIX_PROD}} &euro;
-	</b>
-  </div>
-			<div class="item col-header item-text-wrap">
-				<div class="row">
-				  <div class="col col-50" href="#"><a><i class="icon ion-ios-cart"></i></a>Commander</div>
-				  <div class="col col-50">Stock : {{prod.QTE_PROD}}</div>
-				</div>
-            </div>	
+<div class="list" ng-item="prod in produits" >
+<div class="hero has-mask ">
+	<img class="hero has-mask " src="{{prod.IMG_PROD}}">
+    <div class="content">
+        <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-ios-cart pull-right text-white"></button>
+    </div>
+</div>
+<div class="mid-bar dark-bg z1 padding">
 
+    <h3>
+        R&eacute;f&eacute;rence produit : {{prod.NUM_PROD}}
+    </h3>
+    <p>
+        {{prod.PRIX_PROD}} &euro;
+    </p>
+</div>
+<div class="content double-padding">
+
+    <h4 class="positive">
+
+        {{prod.LIB_PROD}}
+
+    </h4>
+<p class="text-muted">
+{{prod.DES_PROD}}
+</p>
+    <h3 class="outline padding balanced inline img-rounded">
+        Stock : {{prod.QTE_PROD}}            
+    </h3>
+</div>
 </div>
 
   </ion-content>
 </ion-view>
-<div class="bar bar-footer bar-balanced">
-  <div class="title">Smartstock</div>
-</div>

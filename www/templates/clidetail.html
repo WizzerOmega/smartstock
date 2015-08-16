@@ -1,25 +1,30 @@
-<ion-view title="{{clis.RS_CLI}}">
-    <ion-content has-header="true" padding="true" ng-item="cli in clis">
-        <div class="list card">
-            <div class="item item-avatar">
-                <img src="img/avatar/default.png"/>
-                <h2>{{clis.RS_CLI}}</h2>
-                <p>{{clis.NUM_CLI}}</p>
+<ion-view view-title="{{clis.RS_CLI}}">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" ng-item="cli in clis">
+        <div class="hero slide-up" style="background-image: url('img/grey.png');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('img/avatar/default.png');"></div>
+                <h3><a class="light">{{clis.NUM_CLI}}</a></h3>
+                <h4>{{clis.RS_CLI}}</h4>
             </div>
-            <a class="item item-icon-left"><i class="icon ion-clipboard"></i>Adresse
-			<p>{{clis.ADR1_CLI}}</p>
-			<p>{{clis.CP_CLI}} {{clis.VILLE_CLI}}</p>
-			<a class="item item-icon-left"><i class="icon ion-ios-bookmarks"></i>Siret
-			<p>{{clis.SIRET_CLI}}</p>
-            <a class="item item-icon-left" href="tel:{{clis.TEL_CLI}}"><i class="icon ion-ios-telephone"></i>Telephone<p>{{clis.TEL_CLI}}</p></a>
-            <a class="item item-icon-left" href="mailto:{{clis.MAIL_CLI}}"><i class="icon ion-email"></i>Email<p>{{clis.MAIL_CLI}}</p></a>
-			<a class="item item-icon-left"><i class="icon ion-earth"></i>Localisation
-			<div></div>
-			</a>
         </div>
-    </ion-content>	
-	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAh6uJJLwVeJbLK15N8tYcePscZoV2IuMA&sensor=true"></script>
-	<div class="bar bar-footer bar-balanced">
-  <div class="title">Smartstock</div>
-</div>
+		<div class="tabs tabs-dark tabs-icon-top static">
+            <a href="tel:{{clis.TEL_CLI}}" class="tab-item">
+                <i class="icon ion-ios-telephone"></i> Telephone
+            </a>
+            <a href="mailto:{{clis.MAIL_CLI}}" class="tab-item">
+                <i class="icon ion-email"></i> Email
+            </a>
+            <a ui-sref="app.geolocalisation" class="tab-item">
+                <i class="icon ion-earth"></i> Localisation
+            </a>
+        </div>
+        <h4 class="content padding double-padding-x">Informations client</h4>
+        <div class="list animate-fade-slide-in-right">
+			<a class="item item-icon-left"><i class="icon ion-clipboard"></i>Adresse
+			<p>{{clis.ADR1_CLI}}</p>
+			<p>{{clis.CP_CLI}} {{clis.VILLE_CLI}}</p></a>
+			<a class="item item-icon-left"><i class="icon ion-ios-bookmarks"></i>Siret
+			<p>{{clis.SIRET_CLI}}</p></a>
+        </div>
+    </ion-content>
 </ion-view>
