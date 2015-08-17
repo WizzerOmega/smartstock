@@ -107,13 +107,13 @@ angular.module('smartstock.services', [])
         };
     })
 	
-		.factory('SrvStatProduit', function($http) {
+	.factory('SrvStatProduit', function($http) {
         var baseUrl = '';
 		var statPro = [];
         //var baseUrl = 'http://webstock/api/';
         //var cmdAll = $http.get(baseUrl + '/api/stat/detail');
         return {
-            all: function() {
+            all: function(statPro) {
                 return $http.get(baseUrl + '/api/stat/detail');
             }
         };
@@ -121,11 +121,11 @@ angular.module('smartstock.services', [])
 	
 	.factory('SrvStatMensuel', function($http) {
         var baseUrl = '';
-		var StatMensuel = [];
+		var statMen = [];
         //var baseUrl = 'http://webstock/api/';
         //var cmdAll = $http.get(baseUrl + '/api/produit/all');
         return {
-            all: function() {
+            all: function(statMen) {
                 return $http.get(baseUrl + '/api/stat/mensuel');
             }
         };

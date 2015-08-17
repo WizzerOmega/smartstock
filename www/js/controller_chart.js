@@ -1,31 +1,35 @@
 angular.module('smartstock.controller_chart', [])
 
-.controller('GraphCtrl', function($scope) { // Add a simple controller
-  $scope.graph = {};                        // Empty graph object to hold the details for this graph
-  $scope.graph.data = [                     // Add bar data, this will set your bars height in the graph
-    //2015
-    [16, 15, 20, 12, 16, 12, 8, 10],
-  ];
-  $scope.graph.labels = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août'];    // Add labels for the X-axis
-  $scope.graph.series = ['2015'];  // Add information for the hover/touch effect
+.controller('GraphCtrl', function($scope,$http, SrvStatMensuel, $stateParams) { // Add a simple controller
 
+
+  	SrvStatMensuel.all().success(function(data) {	
+		$scope.statMen = data;
+		$scope.graph = {};
+		var myArray = [];
+		var myLib = [];
+			for (var i = 0, len = $scope.statMen.length; i < len; i++) {
+				console.log(i);
+				myArray.push($scope.statMen[i].QTE);
+				myLib.push([$scope.statMen[i].MOIS]);
+			}
+			$scope.graph.data = [myArray];			
+			$scope.graph.labels = myLib;
+			$scope.graph.series = ['2015'];  // Add information for the hover/touch effect
+	});
 })
 
 .controller("PieCtrl", function ($scope,$http, SrvStatProduit, $stateParams) {
-	$scope.labels = [];
-	$scope.data = [];
-    SrvStatProduit.all().success(function(r) {
-      $scope.labels.push(r.LIB_PROD)
-      $scope.data.push(r.QTE)
-    })
- 
-})
-
-.controller("StatCtrl", function ($scope, $http, SrvStatProduit, $stateParams){
-	var baseUrl = '';
-	var i = 0;
-	  
-	  SrvStatProduit.all().success(function(data) {	
-		$scope.statPros = data;
+	SrvStatProduit.all().success(function(data) {	
+		$scope.statPro = data;
+		var myArray = [];
+		var myLib = [];
+			for (var i = 1, len = $scope.statPro.length; i < len; i++) {
+				console.log(i);
+				myArray.push($scope.statPro[i].QTE);
+				myLib.push([$scope.statPro[i].LIB_PROD]);
+			}
+			$scope.data = myArray;
+			$scope.labels = myLib;
 	});
 });

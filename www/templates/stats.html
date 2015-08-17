@@ -1,5 +1,9 @@
 <ion-view cache-view="false" view-title="Statistiques">
     <ion-content ng-class="{expanded:$scope.isExpanded}" style="background-image: url('img/grey.png');">
+	  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()" ng-controller="MyController">
+  </ion-refresher>
 	</br>
 	<div class="mid-bar dark-bg z1 padding">
 		<h3>
@@ -16,25 +20,8 @@
 	</div>
 	<div ng-controller="PieCtrl">
 		<div>
-			<canvas id="pie" class="chart chart-pie" data="data" labels="labels"></canvas>
+			<canvas id="pie" class="chart chart-pie" legend="true" data="data" labels="labels"></canvas>
 		</div>		
 	</div>
-	            <div class="item col-header item-divider">
-                <div class="row">
-                        <div class="col-50">Produit</div>
-						<div class="col-50">Quantit&eacute</div>
-                    </div>
-            </div>
-			<div ng-controller="StatCtrl">
-				<div ng-repeat="statPro in statPros">
-				<div class="item col-header item-divider">
-					<div class="row">
-					  <div id="testD" class="col-50">{{statPro.LIB_PROD}}</div>
-					  <div id="testL" class="col-50">{{statPro.QTE}}</div>
-					</div>
-				</div>
-				</div>
-			</div>
-			</br>
 		</ion-content>
 </ion-view>

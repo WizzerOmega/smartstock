@@ -1,5 +1,9 @@
 <ion-view view-title="{{clis.RS_CLI}}">
     <ion-content ng-class="{expanded:$scope.isExpanded}" ng-item="cli in clis">
+	  <ion-refresher
+		pulling-text="Pull to refresh..."
+		on-refresh="doRefresh()" ng-controller="MyController">
+	  </ion-refresher>
         <div class="hero slide-up" style="background-image: url('img/grey.png');">
             <div class="content">
                 <div class="avatar" style="background-image: url('img/avatar/default.png');"></div>
