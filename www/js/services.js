@@ -12,6 +12,15 @@ angular.module('smartstock.services', [])
             }
         };
     })
+
+    .factory('Auth', function($http) {
+        var baseUrl = '';
+        return {
+            get: function(login, mdp) {
+                return $http.get(baseUrl + '/api/auth/user/x' + login + '/y/' + mdp);
+            }
+        };
+    })
 	
 	    .factory('SrvDetailCommande', function($http) {
         var baseUrl = '';
