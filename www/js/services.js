@@ -149,9 +149,41 @@ angular.module('smartstock.services', [])
 				return $http.get(baseUrl + '/api/produit/' + prodId);
             }
         };
-    });
+    })
+	
+	.factory('SrvSession', function($http) {
+        var baseUrl = '';
+        return {
+            get: function(emailCom, mdpCom) {
+				return $http.get(baseUrl + '/api/auth/' + emailCom + '/y/' + mdpCom);
+            }
+        };
+    })
+	
+	.factory('LoginService', function($http) {
+		var baseUrl='';
+    return {
+        loginUser: function(mail, pw) {
+			console.log(pw);
+			var nom;
+			var pass;
+            //var deferred = $http.defer();
+            //var promise = deferred.promise;
+			console.log(baseUrl);
+            if (mail != '' && pw != '') {		
+				return $http.get('/api/auth/x/' + mail + '/y/' + pw);
+                //deferred.resolve('Bienvenue ' + mail + '!');
+            } else {
+                //deferred.reject('Mausaises informations');
+            }
+        }
+    }
+})
 
-angular.module('starter.services', ['ngResource'])
-    .factory('Session', function ($resource) {
-        return $resource('http://localhost:5000/sessions/:sessionId');
-    });
+/*.factory('Session', function ($resource) {
+	loginUser: function(mail, pw) {
+	return $resource('http://webstock/api/auth/x/' + mail + '/y/' + pw);
+	console.log($resource)
+	}
+})*/;
+

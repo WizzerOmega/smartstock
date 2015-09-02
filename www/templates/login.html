@@ -1,5 +1,5 @@
 <ion-view view-title="Login" align-title="left">
-    <ion-content style="background: url(img/login.jpg) center; background-size: cover;">
+    <ion-content style="background: url(img/login.jpg) center; background-size: cover;" ng-controller="LoginCtrl">
         <div class="hero no-header flat">
             <div class="content">
                 <i class="ion-social-android-outline icon hero-icon royal-bg"></i>
@@ -7,12 +7,18 @@
             </div>
         </div>
         <div class="list">
-            <ion-md-input placeholder="Email" highlight-color="white" type="text"></ion-md-input>
-            <ion-md-input placeholder="Mot de passe" highlight-color="white" type="password"></ion-md-input>
+            <label class="item item-input  label" style="background : #444; width : 90%;margin-left : 5%">
+              <span class="input-label">Email</span>
+              <input style="color : white;" class="md-input" type="text" ng-model="data.email">
+            </label>
+			</br>
+            <label class="item item-input" style="background : #444; width : 90%;margin-left : 5%">
+              <span class="input-label">Password</span>
+              <input type="password" style="color : white;" ng-model="data.password">
+            </label>
         </div>
         <div class="padding">
-            <button ui-sref="app.profil" class="button button-full button-assertive ink">Login</button>
-			
+            <button ng-click="login()" class="button button-full button-assertive ink">Login</button>	
         </div>
 		<div class="button-bar">
 		<form action="www.hova-services.ovh">

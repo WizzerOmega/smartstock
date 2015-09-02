@@ -1,11 +1,13 @@
 <ion-view cache-view="false" view-title="Profil">
     <ion-content ng-class="{expanded:$scope.isExpanded}">
         <div class="hero slide-up" style="background-image: url('img/login.jpg');" ng-controller="ProfilCtrl">
-            <div class="content">
+		<div ng-controller="LoginCtrl">
+            <div class="content" ng-repeat="rep in representant">
                 <div class="avatar" style="background-image: url('img/avatar/default.png');"></div>
-                <h3><a class="light">Nom Pr&eacute;nom</a></h3>
+                <h3><a class="light">{{rep.NOM_REP}}</a></h3>
                 <h4>Commercial</h4>
             </div>
+		</div>
         </div>
         <div class="tabs tabs-dark tabs-icon-top static">
             <a ui-sref="app.search" class="tab-item">
